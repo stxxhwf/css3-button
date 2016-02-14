@@ -1,3 +1,3 @@
-* CSS3 Button
+# CSS3 Button
 
 Used in notebox.win
