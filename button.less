@@ -1,0 +1,194 @@
+/*
+  CSS3 Buttons
+  孙天骁于2016-2-14
+*/
+
+//各种渐变函数
+.trs(@s, @t:@s * 0.92){
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=@s, endColorstr=@t);
+  background:-webkit-gradient(linear, 0 0, 0% 100%, from(@s), to(@t));
+  background:-webkit-gradient(linear, left top, left bottom, from(@s), to(@t));
+  background:-webkit-linear-gradient(top, @s 0%, @t 100%);
+  background:linear-gradient(to bottom,@s 0%,@t 100%);
+}
+.trsd(@t, @s:@t * 0.94){
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=@s, endColorstr=@t);
+  background:-webkit-gradient(linear, 0 0, 0% 100%, from(@s), to(@t));
+  background:-webkit-gradient(linear, left top, left bottom, from(@s), to(@t));
+  background:-webkit-linear-gradient(top, @s 0%, @t 100%);
+  background:linear-gradient(to bottom,@s 0%,@t 100%);
+}
+//----------------------
+
+.btn{
+  display: inline-block;
+  *display: block; zoom: 1;
+  text-decoration: none;
+  border-radius: 4px;
+  line-height: 1.4;
+  padding: 4px 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 13px;
+  font-family: '微软雅黑';
+  letter-spacing: 0;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  background-image: none;
+  cursor: pointer;
+
+  //规定尺寸
+  &.small, &.default{
+    padding: 4px 10px;
+    font-size: 13px;
+  }
+  &.medium{
+    padding: 5px 12px;
+    font-size: 14px;
+  }
+  &.large{
+    padding: 7px 16px;
+    font-size: 16px;
+  }
+  &.block{
+    display: block;
+    width: 100%;
+  }
+
+  //规定颜色和状态
+  &:active, &:visited, &:focus{
+    outline: none;
+  }
+  &[disabled]{
+    opacity: .65;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+  &.default, &.gray, &{
+    color: #040404;
+    border: 1px solid #D7D7D7;
+    background-color: #EFEFEF;
+    box-shadow: 0 0 3px #F2F2F2, 0 0 4px #FFFFFF inset;
+    @color: #FEFEFE;
+    .trs(@color);
+    &:hover:not([disabled]){
+      .trs(@color * 1.02);
+    }
+    &:active:not([disabled]){
+      .trsd(@color * 0.97);
+    }
+  }
+  &.primary, &.blue{
+    color: #FFFFFF;
+    text-shadow: 0 0 1px #DEDEDE;
+    border: 1px solid #607A93;
+    background-color: #B0C1F4;
+    box-shadow: 0px 0px 3px fade(#0D2628, 50%);
+    @color: #3D81B8;
+    .trs(@color);
+    &:hover:not([disabled]){
+      .trs(@color * 1.02);
+    }
+    &:active:not([disabled]){
+      .trsd(@color * 0.97);
+    }
+  }
+
+  &.yellow, &.warning{
+    color: #936C39;
+    text-shadow: 0 0 1px #DEDEDE;
+    border: 1px solid #EEEBAE;
+    background-color: #F2FBAA;
+    box-shadow: 0 0 3px #F8F9EC;
+    @color: #F9F97D;
+    .trs(@color);
+    &:hover:not([disabled]){
+      .trs(@color * 1.02);
+    }
+    &:active:not([disabled]){
+      .trsd(@color * 0.97);
+    }
+  }
+
+  &.red, &.danger{
+    color: #F5F8C2;
+    text-shadow: 0 0 1px #DEDEDE;
+    border: 1px solid #A22F1E;
+    background-color: #F18C56;
+    box-shadow: 0 0 3px #FAF4EB;
+    @color: #E0330E;
+    .trs(@color);
+    &:hover:not([disabled]){
+      .trs(@color * 1.02);
+    }
+    &:active:not([disabled]){
+      .trsd(@color * 0.97);
+    }
+  }
+
+  &.orange{
+    color: #590F38;
+    text-shadow: 0 0 1px #F3FDBF;
+    border: 1px solid #F0C9AC;
+    background-color: #EA9937;
+    box-shadow: 0 0 3px #F3EAD6;
+    @color: #FDC477;
+    .trs(@color);
+    &:hover:not([disabled]){
+      .trs(@color * 1.02);
+    }
+    &:active:not([disabled]){
+      .trsd(@color * 0.97);
+    }
+  }
+
+  &.pink{
+    color: #281432;
+    text-shadow: 0 0 1px #F3FDBF;
+    border: 1px solid #E18ABC;
+    background-color: #EA37C1;
+    box-shadow: 0 0 3px #F2D6F3;
+    @color: #F8B8EE;
+    .trs(@color);
+    &:hover:not([disabled]){
+      .trs(@color * 1.02);
+    }
+    &:active:not([disabled]){
+      .trsd(@color * 0.97);
+    }
+  }
+
+  &.purple{
+    color: #FEFEFE;
+    text-shadow: 0 0 1px #A98EC4;
+    border: 1px solid #9E4996;
+    background-color: #BD87CB;
+    box-shadow: 0 0 3px #F2D6F3;
+    @color: #BC61BA;
+    .trs(@color);
+    &:hover:not([disabled]){
+      .trs(@color * 1.02);
+    }
+    &:active:not([disabled]){
+      .trsd(@color * 0.97);
+    }
+  }
+
+  &.green, &.success{
+    color: #FBFCFA;
+    text-shadow: 0 0 1px #466905;
+    border: 1px solid #5FB053;
+    background-color: #7EDD77;
+    box-shadow: 0 0 3px #DDEFDA;
+    @color: #50D672;
+    .trs(@color);
+    &:hover:not([disabled]){
+      .trs(@color * 1.02);
+    }
+    &:active:not([disabled]){
+      .trsd(@color * 0.97);
+    }
+  }
+
+}
